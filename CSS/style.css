@@ -4,11 +4,11 @@ html,body {height: 100%;}
 body {
 	margin: 0px;
 	padding: 0px;
-	color: #333;	/*全体の文字色*/
+	color: #000;	/*全体の文字色*/
 	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
 	font-size: 16px;	/*文字サイズ*/
 	line-height: 2;		/*行間*/
-	background: #f0f0f0;	/*背景色*/
+	background:#555;/*遷移アニメーションと同じ色を指定*/
 	-webkit-text-size-adjust: none;
 }
 h2,ul,li{margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
@@ -16,7 +16,7 @@ ul {list-style-type: none;}
 
 
 a {
-	color: #333;		/*リンクテキストの色*/
+	color: #fff;		/*リンクテキストの色*/
 	transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
 }
 a:hover {
@@ -25,6 +25,7 @@ a:hover {
 }
 /*メニューブロック全体への指定*/
 #menubar {
+	
 	position: absolute;
 	bottom: 20%;	/*ロゴやメニューが入っているブロックに対して、下からの配置場所の指定。*/
 	left: 0px;
@@ -44,7 +45,7 @@ a:hover {
 #menubar li a {
 	text-decoration: none;display: block;text-align: center;
 	width: 140px;	/*メニューの幅*/
-	color: #000;	/*文字色*/
+	color: #f0f0f0;	/*文字色*/
 	border-bottom: 2px solid transparent;	/*下線の幅、線種、色。transparentは透明の事。*/
 	padding-bottom: 7px;	/*下線と文字の間にとる余白*/
 }
@@ -64,7 +65,7 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a {
 	line-height: 60px;	/*ボタンの高さ*/
 	bottom: 50px;		/*画面の下からの配置場所指定*/
 	right: 3%;			/*画面の右からの配置場所指定*/
-	background: #555;	/*背景色（古いブラウザ用）*/
+	background: #555;	
 	background: rgba(0,0,0,0.5);	/*背景色。0,0,0は黒の事で、0.5は色が50%出た状態の事。*/
 	color: #fff;		/*文字色*/
 	border-radius: 50%;	/*円形にする指定。この１行を削除すると正方形になります。*/
@@ -76,7 +77,7 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
 header{
 	height: 100%;
 	overflow: auto;
-	background-color: #374c55;
+	background-color: #444;
 }
 #container{
 	max-width: 1400px;	/*最大幅。これ以上広くならない指定。*/
@@ -95,4 +96,103 @@ header{
 	background: #000;	/*背景色*/
 	color: #fff;			/*文字色*/
 	border-radius: 100px;	/*角を丸くする指定。大きめであれば適当で構いません。*/
+}
+
+#Self-introduction
+{
+	font-size: 23px;
+}
+
+#Hobbies
+{
+	font-size: 23px;
+}
+/*========= ローディング画面のためのCSS ===============*/
+
+#splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #333;
+	z-index: 9999999;
+	text-align:center;
+	color:#fff;
+}
+
+#splash-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+body.appear{
+    background:#fff;/*画面を開いた後の背景色を指定*/
+}
+
+.splashbg{
+    display: none;
+	content: "";
+	position:fixed;
+	transform: scale(100);
+	background-color: #f0f0f0;/*伸びる背景色の設定*/
+	z-index: 999;
+    /*丸のスタートの形状*/
+    top:calc(50% - 1rem);/*50%から円の半径を引いた値*/
+    left:calc(50% - 1rem);/*50%から円の半径を引いた値*/
+	width: 2rem;
+	height: 2rem;
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear .splashbg{
+    display: block;
+    border-radius: 50%;	
+	animation-name:PageAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+
+@keyframes PageAnime{
+	0% {/*丸のスタート位置と形状*/
+		transform: scale(100);
+	
+	}
+	100% {/*丸の終了位置と形状*/
+		transform: scale(0);
+		display: none;/*終了時は消える*/
+	}
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#container{
+	opacity: 0;/*はじめは透過0に*/
+}
+#menubar{
+	opacity: 0;/*はじめは透過0に*/
+}
+/*bodyにappearクラスがついたら出現*/
+body.appear #menubar{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay: 0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+/*bodyにappearクラスがついたら出現*/
+body.appear #container{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay: 0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+
+@keyframes PageAnimeAppear{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+}
 }
