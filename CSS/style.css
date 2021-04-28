@@ -11,7 +11,7 @@ body {
 	background: #f0f0f0;	/*背景色*/
 	-webkit-text-size-adjust: none;
 }
-ul,li{margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
+h2,ul,li{margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
 ul {list-style-type: none;}
 
 
@@ -29,7 +29,7 @@ a:hover {
 	bottom: 20%;	/*ロゴやメニューが入っているブロックに対して、下からの配置場所の指定。*/
 	left: 0px;
 	width: 100%;
-	height: 70%;
+	/*height: 70%;*/
 	text-align: center;
 }
 /*メニュー１個あたりの指定*/
@@ -53,15 +53,46 @@ a:hover {
 	border-bottom: 2px solid #fff;	/*下線の幅、線種、色*/
 	letter-spacing: 0.1em;			/*文字間隔を少しだけ広くする指定。そのままがいいならこの１行を削除。*/
 }
+/*PAGE TOP（↑）設定
+---------------------------------------------------------------------------*/
+body .nav-fix-pos-pagetop a {
+	display: none;
+}
+body.is-fixed-pagetop .nav-fix-pos-pagetop a {
+	display: block;text-decoration: none;text-align: center;position: fixed;animation-name: opa1;animation-duration: 1s;animation-fill-mode: forwards;
+	width: 60px;		/*ボタンの幅*/
+	line-height: 60px;	/*ボタンの高さ*/
+	bottom: 50px;		/*画面の下からの配置場所指定*/
+	right: 3%;			/*画面の右からの配置場所指定*/
+	background: #555;	/*背景色（古いブラウザ用）*/
+	background: rgba(0,0,0,0.5);	/*背景色。0,0,0は黒の事で、0.5は色が50%出た状態の事。*/
+	color: #fff;		/*文字色*/
+	border-radius: 50%;	/*円形にする指定。この１行を削除すると正方形になります。*/
+}
+body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
+	background: #999;	/*マウスオン時の背景色*/
+}
 
 header{
-	width: 100%;
-	height: 15vh;
+	height: 100%;
 	overflow: auto;
-	background-color: #c2fcca;
+	background-color: #374c55;
 }
 #container{
-	width: 100%;
-	height: 85vh;
-	background-color: #ccffff;
+	max-width: 1400px;	/*最大幅。これ以上広くならない指定。*/
+	margin: 0 auto;
+	
+}
+
+/*自己紹介内にある見出し設定*/
+#contents h2 {
+	margin-bottom: 20px;
+	clear: both;
+	padding: 0 20px;
+	font-size: 20px;		/*文字サイズ*/
+	text-align: center;		/*文字をセンタリング*/
+	letter-spacing: 0.1em;	/*文字間隔を少しだけ広くする指定*/
+	background: #000;	/*背景色*/
+	color: #fff;			/*文字色*/
+	border-radius: 100px;	/*角を丸くする指定。大きめであれば適当で構いません。*/
 }
