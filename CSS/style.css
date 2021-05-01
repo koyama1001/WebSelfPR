@@ -5,13 +5,22 @@ body {
 	margin: 0px;
 	padding: 0px;
 	color: #000;	/*全体の文字色*/
-	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
 	font-size: 16px;	/*文字サイズ*/
 	line-height: 2;		/*行間*/
 	background:#555;/*遷移アニメーションと同じ色を指定*/
 	-webkit-text-size-adjust: none;
 }
-h2,ul,li{margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
+h1,h2,h3,ul,li{margin: 0px;padding: 0px;font-size: 115%;font-weight: normal;}
+
+/*ロゴ画像*/
+header #logo img {
+	display: block;
+	width: 20%;	/*画像の幅*/
+	position: absolute;
+	left: 40%;		
+	bottom: 50%;
+}
+
 ul {list-style-type: none;}
 
 
@@ -25,7 +34,6 @@ a:hover {
 }
 /*メニューブロック全体への指定*/
 #menubar {
-	
 	position: absolute;
 	bottom: 20%;	/*ロゴやメニューが入っているブロックに対して、下からの配置場所の指定。*/
 	left: 0px;
@@ -187,7 +195,7 @@ body.appear #container{
 	animation-fill-mode:forwards;
 	opacity: 0;
 }
-
+/*透過戻す処理*/
 @keyframes PageAnimeAppear{
 	0% {
 	opacity: 0;
@@ -196,3 +204,55 @@ body.appear #container{
 	opacity: 1;
 }
 }
+
+.slider {
+    position:relative;
+	z-index: 1;
+	/*↑z-indexの値をh1のz-indexの値よりも小さくして背景に回す*/
+	height: 100vh;
+}
+/*背景画像設定*/
+
+.slider-item01 {
+    background:url(img/Fortnite.jpg);
+}
+
+.slider-item02 {
+    background:url(img/Apex.jpg);
+}
+
+
+.slider-item {
+    width: 50%;
+    height: 75vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+	z-index: 3;
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #ccc;/*矢印の色*/
+    border-right: 2px solid #ccc;/*矢印の色*/
+    height: 25px;
+    width: 25px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    left:2.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right:2.5%;
+    transform: rotate(45deg);
+}
+
