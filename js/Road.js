@@ -1,17 +1,14 @@
 $(window).on('load',function(){
     $("#splash-logo").delay(1200).fadeOut('slow');//ロゴを1.2秒でフェードアウト
 	
-    //ここからローディングエリア（splashエリア）を1.5秒でフェードアウトした後に動かしたいJSをまとめる
-    $("#splash").delay(1500).fadeOut('slow',function(){//ローディングエリア（splashエリア）を1.5秒でフェードアウトする記述
     
-        $('body').addClass('appear');//フェードアウト後bodyにappearクラス付与
-	
+    $("#splash").delay(1500).fadeOut('slow',function(){//ローディングエリア（splashエリア）を1.5秒でフェードアウトする
+    
+        $('body').addClass('appear');
     });
     
-    
-  
-    $('.splashbg').on('animationend', function() {    
-        $('.slider').slick({
+ 
+    $('.slider').slick({
             autoplay: true,//自動的に動き出すか。初期値はfalse。
             autoplaySpeed: 3000,//次のスライドに切り替わる待ち時間
             speed:1000,//スライドの動きのスピード。初期値は300。
@@ -25,7 +22,7 @@ $(window).on('load',function(){
             pauseOnFocus: false,//フォーカスで一時停止を無効
             pauseOnHover: false,//マウスホバーで一時停止を無効
             pauseOnDotsHover: false,//ドットナビゲーションをマウスホバーで一時停止を無効
-        });
+    });
     
     //スマホ用：スライダーをタッチしても止めずにスライドをさせたい場合
     $('.slider').on('touchmove', function(event, slick, currentSlide, nextSlide){
@@ -34,4 +31,3 @@ $(window).on('load',function(){
     });
 
         
-});

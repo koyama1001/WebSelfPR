@@ -10,7 +10,16 @@ body {
 	background:#555;/*遷移アニメーションと同じ色を指定*/
 	-webkit-text-size-adjust: none;
 }
-h1,h2,h3,ul,li{margin: 0px;padding: 0px;font-size: 115%;font-weight: normal;}
+h1,h3,ul,li{margin: 0px;padding: 0px;font-size: 115%;font-weight: normal;}
+
+
+h2{
+font-size: 20px;
+}
+
+p{
+	font-size: 28px;	/*文字サイズ*/
+}
 
 /*ロゴ画像*/
 header #logo img {
@@ -19,6 +28,7 @@ header #logo img {
 	position: absolute;
 	left: 40%;		
 	bottom: 50%;
+	top: -20em;
 }
 
 ul {list-style-type: none;}
@@ -229,8 +239,31 @@ body.appear #container{
     background-position: center;
     background-size: cover;
 }
+.slick-dots {
+	position: relative;
+	z-index: 3;
+	  text-align:center;
+	margin:-50px 0 0 0;
+  }
+  
+  .slick-dots li {
+	  display:inline-block;
+	margin:0 5px;
+  }
+  
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width:8px;/*ドットボタンのサイズ*/
+    height:8px;/*ドットボタンのサイズ*/
+    display:block;
+    border-radius:50%;
+    background:#ccc;/*ドットボタンの色*/
+}
 
-/*矢印の設定*/
+.slick-dots .slick-active button{
+    background:#333;/*ドットボタンの現在地表示の色*/
+}
 
 /*戻る、次へ矢印の位置*/
 .slick-prev, 
