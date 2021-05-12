@@ -19,7 +19,9 @@ h1,h3,ul,li{margin: 0px;padding: 0px;font-size: 115%;font-weight: normal;}
 }
 h2{
 	margin: 0px;
+	padding: 0px;
 font-size: 20px;
+font-weight: normal;
 }
 
 p{
@@ -27,13 +29,17 @@ p{
 	padding: 0px 20px 20px;	/*上、左右、下への余白*/
 }
 
+#Learned a{
+	position: relative;
+	left: 35%;
+}
 
 #container p {
 	padding: 0px 20px 20px;	/*上、左右、下への余白*/
 }
 
 /*ロゴ画像*/
-header #logo img {
+header #logo .bb img {
 	
 	display: block;
 	width: 20%;	/*画像の幅*/
